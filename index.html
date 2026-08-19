@@ -21,9 +21,13 @@
 
             <h1>Pokedex</h1>
         </div>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search Pokémon...">
-            <button id="search-button">Search</button>
+        <div>
+            <label for="#Search">Search Pokémon:</label>
+            <input data-id="search-input" id="#Search" class="input-search" type="search" name="search" minlength="3"
+                placeholder="min 3 lts" required onkeyup="pressEnter(event, 'search')">
+            <button data-id="search-button" onclick="checkSearchInput()" type="submit" class="btn-icon">
+                <img src="./assets/icons/search.svg" alt="search for Pokémon">
+            </button>
         </div>
     </header>
     <main></main>
