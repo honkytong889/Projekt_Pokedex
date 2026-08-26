@@ -50,13 +50,13 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
             <button data-id="close-dialog-button"
                 onclick="closeDialog()"
                 class="btn-icon">
-                <img src="./assets/icons/close.svg" 
+                <img src="assets/icons/close.svg" 
                 alt="close overlay">
             </button>
         </header>
         <img id="LoadingSpinnerOverlay"
             class="d-none"
-            src="./assets/icons/pokeball-green.svg" 
+            src="assets/img/pokeball.webp" 
             alt="Poké Ball"> 
         <section>
             <h3 data-id="overlay-pokemon-name" class="border-big">${name}</h3>
@@ -92,7 +92,7 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                     onclick="renderPreviousOrNextPokemonOverlay(${pokeID}, 'previous')"
                     id="ButtonPreviousPokemon"
                     class="btn-icon btn-reverse">
-                    <img src="./assets/icons/arrow-back.svg" 
+                    <img src="assets/icons/Arrow-left.svg" 
                     alt="previous Pokémon">
                 </button>
                 <div>
@@ -102,7 +102,7 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                     onclick="renderPreviousOrNextPokemonOverlay(${pokeID}, 'next')"
                     id="ButtonNextPokemon"
                     class="btn-icon">
-                    <img src="./assets/icons/arrow-forward.svg" 
+                    <img src="assets/icons/Aroow-Right.svg" 
                     alt="next Pokémon">
                 </button>
             </div>

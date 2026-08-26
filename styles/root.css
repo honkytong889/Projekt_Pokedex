@@ -22,7 +22,28 @@
     --font-weight-semibold: 600;
     --font-weight-medium: 500;
     --font-weight-regular: 400;
+
+    /* pokemon types_: */
+    --normal: rgb(183, 183, 168);
+    --fire: rgb(255, 96, 67);
+    --water: rgb(81, 168, 255);
+    --electric: rgb(255, 212, 81);
+    --grass: rgb(139, 212, 110);
+    --ice: rgb(102, 204, 255);
+    --fighting: rgb(197, 110, 96);
+    --poison: rgb(183, 110, 168);
+    --ground: rgb(226, 197, 110);
+    --flying: rgb(154, 168, 255);
+    --psychic: rgb(255, 110, 168);
+    --bug: rgb(183, 197, 67);
+    --rock: rgb(197, 183, 125);
+    --ghost: rgb(125, 125, 197);
+    --dragon: rgb(139, 125, 241);
+    --dark: rgb(139, 110, 96);
+    --steel: rgb(183, 183, 197);
+    --fairy: rgb(241, 168, 241);
 }
+
 
 * {
     margin: 0;
