@@ -56,3 +56,92 @@ dialog {
 html:has(dialog[open]) {
     overflow: hidden;
 }
+
+.loading-spinner {
+    display: block;
+    position: fixed;
+    top: calc(60px + (100vh - 30vh - 60px) / 2);
+    height: 20vh;
+    z-index: 2;
+    animation: loadingSpinner 10s linear infinite;
+}
+
+@keyframes loadingSpinner {
+    0% {
+        filter: drop-shadow(0px 0px 80px var(--normal));
+        transform: rotate(0deg);
+    }
+
+    5.5% {
+        filter: drop-shadow(0px 0px 80px var(--fire));
+    }
+
+    11% {
+        filter: drop-shadow(0px 0px 80px var(--water));
+    }
+
+    16.5% {
+        filter: drop-shadow(0px 0px 80px var(--electric));
+    }
+
+    22% {
+        filter: drop-shadow(0px 0px 80px var(--grass));
+    }
+
+    27.5% {
+        filter: drop-shadow(0px 0px 80px var(--ice));
+    }
+
+    33% {
+        filter: drop-shadow(0px 0px 80px var(--fighting));
+    }
+
+    38.5% {
+        filter: drop-shadow(0px 0px 80px var(--poison));
+    }
+
+    44% {
+        filter: drop-shadow(0px 0px 80px var(--ground));
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 80px var(--flying));
+    }
+
+    56% {
+        filter: drop-shadow(0px 0px 80px var(--psychic));
+    }
+
+    61.5% {
+        filter: drop-shadow(0px 0px 80px var(--bug));
+    }
+
+    67% {
+        filter: drop-shadow(0px 0px 80px var(--rock));
+    }
+
+    72.5% {
+        filter: drop-shadow(0px 0px 80px var(--ghost));
+    }
+
+    78% {
+        filter: drop-shadow(0px 0px 80px var(--dragon));
+    }
+
+    83.5% {
+        filter: drop-shadow(0px 0px 80px var(--dark));
+    }
+
+    89% {
+        filter: drop-shadow(0px 0px 80px var(--steel));
+    }
+
+    94.5% {
+        filter: drop-shadow(0px 0px 80px var(--fairy));
+    }
+
+    100% {
+        filter: drop-shadow(0px 0px 80px var(--normal));
+        transform: rotate(360deg);
+    }
+}
