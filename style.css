@@ -118,6 +118,7 @@ main {
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
+    padding-left: 90px;
 }
 
 .pokemon-details-container-child {

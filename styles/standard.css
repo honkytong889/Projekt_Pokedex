@@ -63,7 +63,9 @@ html:has(dialog[open]) {
     top: calc(60px + (100vh - 30vh - 60px) / 2);
     height: 20vh;
     z-index: 2;
-    animation: loadingSpinner 10s linear infinite;
+    animation:
+        loadingSpinner 10s linear infinite,
+        pulse 1s ease-in-out infinite;
 }
 
 @keyframes loadingSpinner {
@@ -143,5 +145,19 @@ html:has(dialog[open]) {
     100% {
         filter: drop-shadow(0px 0px 80px var(--normal));
         transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
     }
 }
