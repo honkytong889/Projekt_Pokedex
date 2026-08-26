@@ -2,3 +2,25 @@
     --color-bg: #1E1E1E;
     --color-font: rgb(255, 255, 255);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    color: var(--color-font);
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
