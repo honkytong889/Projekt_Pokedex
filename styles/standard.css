@@ -1,0 +1,41 @@
+input {
+    text-align: center;
+    background-color: var(--color-font);
+    border: 1px solid var(--color-font);
+    border-radius: 5px;
+    padding: 8px 0 8px 8px;
+}
+
+label {
+    color: var(--color-font);
+    font-size: 24px;
+}
+
+.input-loading-amount {
+    width: 60px;
+}
+
+.input-search {
+    width: 120px;
+    border-radius: 5px;
+}
+
+.btn-icon {
+    width: 35px;
+    height: 33px;
+    background-color: white;
+    border: none;
+    border-radius: 30%;
+}
+
+.wrapper {
+    padding: 0 max(5%, calc((100% - 1440px) / 2));
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
