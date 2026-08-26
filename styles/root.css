@@ -59,6 +59,14 @@ body {
     height: 100vh;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-weight: var(--font-weight-bold);
+}
+
+
 h1 {
     font-family: var(--font-family-main);
     color: var(--color-font);
@@ -67,6 +75,27 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
+
+h2 {
+    font-family: var(--font-family-main);
+    color: var(--color-font);
+    font-size: var(--font-size-42);
+    text-align: center;
+}
+
+h3 {
+    justify-self: center;
+    padding: 8px 24px;
+    width: fit-content;
+}
+
+h4 {
+    justify-self: center;
+    font-size: var(--font-size-24);
+    padding: 8px 24px;
+    width: fit-content;
+}
+
 
 span {
     font-family: var(--font-family-sub);

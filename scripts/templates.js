@@ -1,7 +1,6 @@
 function templatePokemonCard(pokeID, name) {
     return `
-        <li data-id="card"
-            class="pokemon-card">
+        <li data-id="card" class="pokemon-card">
             <button data-id="card-image" id="Image${pokeID}" onclick="showDialog(${pokeID})"></button>
             <h2 data-id="card-pokemon-name">${name}</h2>
             <div data-id="card-pokemon-types" id="Types${pokeID}"></div>
@@ -17,7 +16,7 @@ function templatePokemonTypes(type) {
 
 function templateLoadMoreButton(loadingAmount) {
     return `
-        <button data-id="load-more-button" 
+        <button data-id="load-more-button-left" 
             onclick="loadMorePokemon()"
             class="btn-load-more">
             Load
@@ -27,7 +26,7 @@ function templateLoadMoreButton(loadingAmount) {
             type="number" name="loading amount" 
             value="${loadingAmount}" required
             onkeyup="pressEnter(event, 'loadMore')">
-        <button data-id="load-more-button"
+        <button data-id="load-more-button-right"
             onclick="loadMorePokemon()"
             class="btn-load-more">
             more
@@ -50,15 +49,14 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
             <button data-id="close-dialog-button"
                 onclick="closeDialog()"
                 class="btn-icon">
-                <img src="assets/icons/close.svg" 
-                alt="close overlay">
+                <img src="assets/icons/close.svg" alt="close overlay">
             </button>
         </header>
         <img id="LoadingSpinnerOverlay"
             class="d-none"
             src="assets/img/pokeball.webp" 
             alt="Poké Ball"> 
-        <section>
+        <section class="overlay-body">
             <h3 data-id="overlay-pokemon-name" class="border-big">${name}</h3>
             <div class="pokemon-details-container-parent">
                 <div data-id="pokemon-data-1-desktop" class="hide-mobile pokemon-details-container-child">
@@ -92,8 +90,7 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                     onclick="renderPreviousOrNextPokemonOverlay(${pokeID}, 'previous')"
                     id="ButtonPreviousPokemon"
                     class="btn-icon btn-reverse">
-                    <img src="assets/icons/Arrow-left.svg" 
-                    alt="previous Pokémon">
+                    <img src="assets/icons/Arrow-left.svg" alt="previous Pokémon">
                 </button>
                 <div>
                     <h4 class="border-big">Evolution Chain</h4>
@@ -102,8 +99,7 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                     onclick="renderPreviousOrNextPokemonOverlay(${pokeID}, 'next')"
                     id="ButtonNextPokemon"
                     class="btn-icon">
-                    <img src="assets/icons/Aroow-Right.svg" 
-                    alt="next Pokémon">
+                    <img src="assets/icons/Arrow-Right.svg" alt="next Pokémon">
                 </button>
             </div>
             <ul data-id="evolution-chain"
@@ -111,4 +107,16 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                 class="evolution-chain">
             </ul>
         </section>`;
+}
+
+function templateEvolutionChain(chainPokeID, name, type1, type2) {
+    return `
+        <li>
+            <h4>${name}</h4>
+            <button class="btn-img-wrapper" onclick="showDialog(${chainPokeID})">
+                <img style="filter: drop-shadow(-4px 4px 4px var(--${type1})) drop-shadow(4px -4px 4px var(--${type2}))"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${chainPokeID}.png" 
+                    alt="${name}">
+            </button>
+        </li>`;
 }

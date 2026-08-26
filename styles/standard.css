@@ -28,6 +28,11 @@ label {
     border-radius: 30%;
 }
 
+ol,
+ul {
+    list-style-type: none;
+}
+
 .wrapper {
     padding: 0 max(5%, calc((100% - 1440px) / 2));
 }
@@ -38,4 +43,16 @@ label {
 
 .d-flex {
     display: flex;
+}
+
+dialog {
+    background-color: transparent;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    width: min(100%, 900px);
+}
+
+html:has(dialog[open]) {
+    overflow: hidden;
 }
