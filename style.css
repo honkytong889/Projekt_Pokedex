@@ -43,6 +43,7 @@ main {
 }
 
 .container-pokemon-cards {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
@@ -67,7 +68,7 @@ main {
 
 .span-type {
     font-size: var(--font-size-24);
-    color: var(--color-dark);
+    color: var(--color-font);
     border-radius: 15px;
     padding: 2px 15px;
 
@@ -161,7 +162,8 @@ main {
 }
 
 .evolution-chain>li>img {
-    width: 200px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
 }
 
