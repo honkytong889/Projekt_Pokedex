@@ -225,8 +225,8 @@ main {
     height: 20%;
 }
 
-.evolution-chain>li>img {
-    width: 200px;
+.evolution-chain>li>button>img {
+    height: 200px;
     cursor: pointer;
 }
 
