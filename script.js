@@ -32,7 +32,16 @@ async function init() {
 
 function toggleLoadingSpinner(show) {
     const spinner = document.getElementById("LoadingSpinner");
-    if (spinner) spinner.classList.toggle("loading-spinner", show);
+    if (!spinner) return;
+    spinner.classList.toggle("d-none", !show);
+    spinner.classList.toggle("loading-spinner", show);
+}
+
+function toggleLoadingSpinnerOverlay(show) {
+    const spinner = document.getElementById("LoadingSpinnerOverlay");
+    if (!spinner) return;
+    spinner.classList.toggle("d-none", !show);
+    spinner.classList.toggle("loading-spinner", show);
 }
 
 async function fetchPokemonBatch(start, end) {
@@ -203,10 +212,14 @@ async function renderPokemonOverlay(pokeID) {
         );
     }
 
+    toggleLoadingSpinnerOverlay(true);
+
     renderPokemonTypes(pokeID, types, "TypesOverlay");
     renderPokemonTypes(pokeID, types, "TypesOverlayMobile");
 
     await renderEvolutionChain(pokeID);
+
+    toggleLoadingSpinnerOverlay(false);
 }
 
 function closeDialog() {

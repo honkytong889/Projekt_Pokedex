@@ -1,6 +1,9 @@
 .loading-spinner {
     display: block;
     position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     top: calc(60px + (100vh - 30vh - 60px) / 2);
     height: 20vh;
     z-index: 2;
