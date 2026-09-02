@@ -138,21 +138,3 @@ button {
 :focus-visible {
     outline: none;
 }
-
-a:hover,
-a:focus-visible,
-button:hover,
-button:focus-visible,
-.pokemon-card:hover,
-.pokemon-card:focus-visible,
-.pokemon-card>button>img:hover,
-.pokemon-card>button>img:focus-visible {
-    filter: drop-shadow(var(--shadow));
-}
-
-a:active,
-button:active,
-.pokemon-card:active,
-.pokemon-card>button>img:active {
-    filter: drop-shadow(var(--shadow-big));
-}

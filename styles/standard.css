@@ -2,8 +2,6 @@
     --color-dark: rgb(0, 6, 1);
     --color-light: rgb(212, 237, 119);
     --color-font: rgba(255, 255, 255, 1);
-    --shadow: 0px 0px 8px var(--color-light);
-    --shadow-big: 0px 0px 12px var(--color-light);
     --border-radius-small: 4px 24px;
     --border-radius-small-reverse: 24px 4px;
     --border-radius-big: 8px 48px;

@@ -66,7 +66,7 @@ function templatePokemonOverlay(pokeID, name, type1, type2, height, weight, hp, 
                 </div>
                 <div class="pokemon-details-container-child-img">
                     <img data-id="dialog-image"
-                        style="filter: drop-shadow(-12px 12px 12px var(--${type1})) drop-shadow(12px -12px 12px var(--${type2}))"
+                        
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeID}.png" 
                         alt="${name}">
                     <div data-id="overlay-pokemon-types-mobile" class="show-mobile" id="TypesOverlayMobile${pokeID}"></div>
@@ -114,7 +114,7 @@ function templateEvolutionChain(chainPokeID, name, type1, type2) {
         <li>
             <h4>${name}</h4>
             <button class="btn-img-wrapper" onclick="showDialog(${chainPokeID})">
-                <img style="filter: drop-shadow(-4px 4px 4px var(--${type1})) drop-shadow(4px -4px 4px var(--${type2}))"
+                <img 
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${chainPokeID}.png" 
                     alt="${name}">
             </button>
