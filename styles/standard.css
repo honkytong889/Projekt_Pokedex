@@ -1,10 +1,10 @@
 :root {
     --color-dark: rgb(0, 6, 1);
-    --color-light: rgb(212, 237, 119);
+    --color-light: rgb(247, 248, 242);
     --color-font: rgba(255, 255, 255, 1);
-    --border-radius-small: 4px 24px;
-    --border-radius-small-reverse: 24px 4px;
-    --border-radius-big: 8px 48px;
+    --border-radius-small: 20px;
+    --border-radius-small-reverse: 24px;
+    --border-radius-big: 30px;
 
     /* pokemon types_: */
     --normal: rgb(183, 183, 168);
