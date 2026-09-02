@@ -1,31 +1,39 @@
-input {
-    text-align: center;
-    background-color: var(--color-font);
-    border: 1px solid var(--color-font);
-    border-radius: 5px;
-    padding: 8px 0 8px 8px;
+:root {
+    --color-dark: rgb(0, 6, 1);
+    --color-light: rgb(212, 237, 119);
+    --color-font: rgba(255, 255, 255, 1);
+    --shadow: 0px 0px 8px var(--color-light);
+    --shadow-big: 0px 0px 12px var(--color-light);
+    --border-radius-small: 4px 24px;
+    --border-radius-small-reverse: 24px 4px;
+    --border-radius-big: 8px 48px;
+
+    /* pokemon types_: */
+    --normal: rgb(183, 183, 168);
+    --fire: rgb(255, 96, 67);
+    --water: rgb(81, 168, 255);
+    --electric: rgb(255, 212, 81);
+    --grass: rgb(139, 212, 110);
+    --ice: rgb(102, 204, 255);
+    --fighting: rgb(197, 110, 96);
+    --poison: rgb(183, 110, 168);
+    --ground: rgb(226, 197, 110);
+    --flying: rgb(154, 168, 255);
+    --psychic: rgb(255, 110, 168);
+    --bug: rgb(183, 197, 67);
+    --rock: rgb(197, 183, 125);
+    --ghost: rgb(125, 125, 197);
+    --dragon: rgb(139, 125, 241);
+    --dark: rgb(139, 110, 96);
+    --steel: rgb(183, 183, 197);
+    --fairy: rgb(241, 168, 241);
 }
 
-label {
-    color: var(--color-font);
-    font-size: 24px;
-}
-
-.input-loading-amount {
-    width: 60px;
-}
-
-.input-search {
-    width: 120px;
-    border-radius: 5px;
-}
-
-.btn-icon {
-    width: 35px;
-    height: 33px;
-    background-color: white;
-    border: none;
-    border-radius: 30%;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
 ol,
@@ -55,109 +63,4 @@ dialog {
 
 html:has(dialog[open]) {
     overflow: hidden;
-}
-
-.loading-spinner {
-    display: block;
-    position: fixed;
-    top: calc(60px + (100vh - 30vh - 60px) / 2);
-    height: 20vh;
-    z-index: 2;
-    animation:
-        loadingSpinner 10s linear infinite,
-        pulse 1s ease-in-out infinite;
-}
-
-@keyframes loadingSpinner {
-    0% {
-        filter: drop-shadow(0px 0px 80px var(--normal));
-        transform: rotate(0deg);
-    }
-
-    5.5% {
-        filter: drop-shadow(0px 0px 80px var(--fire));
-    }
-
-    11% {
-        filter: drop-shadow(0px 0px 80px var(--water));
-    }
-
-    16.5% {
-        filter: drop-shadow(0px 0px 80px var(--electric));
-    }
-
-    22% {
-        filter: drop-shadow(0px 0px 80px var(--grass));
-    }
-
-    27.5% {
-        filter: drop-shadow(0px 0px 80px var(--ice));
-    }
-
-    33% {
-        filter: drop-shadow(0px 0px 80px var(--fighting));
-    }
-
-    38.5% {
-        filter: drop-shadow(0px 0px 80px var(--poison));
-    }
-
-    44% {
-        filter: drop-shadow(0px 0px 80px var(--ground));
-    }
-
-    50% {
-        filter: drop-shadow(0px 0px 80px var(--flying));
-    }
-
-    56% {
-        filter: drop-shadow(0px 0px 80px var(--psychic));
-    }
-
-    61.5% {
-        filter: drop-shadow(0px 0px 80px var(--bug));
-    }
-
-    67% {
-        filter: drop-shadow(0px 0px 80px var(--rock));
-    }
-
-    72.5% {
-        filter: drop-shadow(0px 0px 80px var(--ghost));
-    }
-
-    78% {
-        filter: drop-shadow(0px 0px 80px var(--dragon));
-    }
-
-    83.5% {
-        filter: drop-shadow(0px 0px 80px var(--dark));
-    }
-
-    89% {
-        filter: drop-shadow(0px 0px 80px var(--steel));
-    }
-
-    94.5% {
-        filter: drop-shadow(0px 0px 80px var(--fairy));
-    }
-
-    100% {
-        filter: drop-shadow(0px 0px 80px var(--normal));
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
 }

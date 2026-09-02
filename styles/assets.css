@@ -1,0 +1,155 @@
+.loading-spinner {
+    display: block;
+    position: fixed;
+    top: calc(60px + (100vh - 30vh - 60px) / 2);
+    height: 20vh;
+    z-index: 2;
+    animation: loadingSpinner 10s linear infinite;
+}
+
+@keyframes loadingSpinner {
+    0% {
+        filter: drop-shadow(0px 0px 80px var(--normal));
+        transform: rotate(0deg);
+    }
+
+    5.5% {
+        filter: drop-shadow(0px 0px 80px var(--fire));
+    }
+
+    11% {
+        filter: drop-shadow(0px 0px 80px var(--water));
+    }
+
+    16.5% {
+        filter: drop-shadow(0px 0px 80px var(--electric));
+    }
+
+    22% {
+        filter: drop-shadow(0px 0px 80px var(--grass));
+    }
+
+    27.5% {
+        filter: drop-shadow(0px 0px 80px var(--ice));
+    }
+
+    33% {
+        filter: drop-shadow(0px 0px 80px var(--fighting));
+    }
+
+    38.5% {
+        filter: drop-shadow(0px 0px 80px var(--poison));
+    }
+
+    44% {
+        filter: drop-shadow(0px 0px 80px var(--ground));
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 80px var(--flying));
+    }
+
+    56% {
+        filter: drop-shadow(0px 0px 80px var(--psychic));
+    }
+
+    61.5% {
+        filter: drop-shadow(0px 0px 80px var(--bug));
+    }
+
+    67% {
+        filter: drop-shadow(0px 0px 80px var(--rock));
+    }
+
+    72.5% {
+        filter: drop-shadow(0px 0px 80px var(--ghost));
+    }
+
+    78% {
+        filter: drop-shadow(0px 0px 80px var(--dragon));
+    }
+
+    83.5% {
+        filter: drop-shadow(0px 0px 80px var(--dark));
+    }
+
+    89% {
+        filter: drop-shadow(0px 0px 80px var(--steel));
+    }
+
+    94.5% {
+        filter: drop-shadow(0px 0px 80px var(--fairy));
+    }
+
+    100% {
+        filter: drop-shadow(0px 0px 80px var(--normal));
+        transform: rotate(360deg);
+    }
+}
+
+input {
+    text-align: center;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius-small);
+    padding: 8px 0 8px 8px;
+}
+
+.input-loading-amount {
+    width: 60px;
+}
+
+.input-search {
+    width: 100px;
+}
+
+button {
+    background-color: var(--color-light);
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+}
+
+.pokemon-card>button {
+    background-color: transparent;
+}
+
+.btn-reverse {
+    border-radius: var(--border-radius-small-reverse);
+}
+
+.btn-icon {
+    padding: 0 8px;
+}
+
+.btn-load-more {
+    color: var(--color-dark);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    width: fit-content;
+}
+
+/* focus and hover */
+
+:focus-visible {
+    outline: none;
+}
+
+a:hover,
+a:focus-visible,
+button:hover,
+button:focus-visible,
+.pokemon-card:hover,
+.pokemon-card:focus-visible,
+.pokemon-card>button>img:hover,
+.pokemon-card>button>img:focus-visible {
+    filter: drop-shadow(var(--shadow));
+}
+
+a:active,
+button:active,
+.pokemon-card:active,
+.pokemon-card>button>img:active {
+    filter: drop-shadow(var(--shadow-big));
+}
