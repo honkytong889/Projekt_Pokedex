@@ -177,15 +177,10 @@ function pressEnter(event, action) {
 async function showDialog(pokeID) {
     dialogArray = searchedPokemons.length === 0 ? renderedPokemons : searchedPokemons;
 
-    let dialogContainer = document.getElementById("DialogContainer");
-    if (!dialogContainer) {
-        dialogContainer = document.createElement("dialog");
-        dialogContainer.id = "DialogContainer";
-        dialogContainer.className = "pokemon-dialog";
-        document.body.appendChild(dialogContainer);
-    }
+    const dialog = document.getElementById("Dialog");
+    if (!dialog) return;
 
-    dialogContainer.showModal();
+    dialog.showModal();
     await renderPokemonOverlay(pokeID);
 }
 
@@ -201,9 +196,9 @@ async function renderPokemonOverlay(pokeID) {
     const weight = (responsePokemon.weight / 10).toFixed(1).replace(".", ",") + " kg";
     const stats = getPokemonStats(responsePokemon);
 
-    const dialogContainer = document.getElementById("DialogContainer");
-    if (dialogContainer) {
-        dialogContainer.innerHTML = templatePokemonOverlay(
+    const overlayContainer = document.getElementById("PokemonOverlay");
+    if (overlayContainer) {
+        overlayContainer.innerHTML = templatePokemonOverlay(
             pokeID, name, type1, type2, height, weight, stats.hp, stats.attack, stats.defense
         );
     }
@@ -215,8 +210,8 @@ async function renderPokemonOverlay(pokeID) {
 }
 
 function closeDialog() {
-    const dialogContainer = document.getElementById("DialogContainer");
-    if (dialogContainer) dialogContainer.close();
+    const dialog = document.getElementById("Dialog");
+    if (dialog) dialog.close();
 }
 
 async function renderPreviousOrNextPokemonOverlay(currentID, direction) {

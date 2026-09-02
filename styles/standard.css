@@ -55,10 +55,16 @@ ul {
 
 dialog {
     background-color: transparent;
-    justify-self: center;
-    align-self: center;
     border: none;
+    margin: auto;
+    max-height: 90vh;
+    overflow: visible;
+    padding: 0;
     width: min(100%, 900px);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 html:has(dialog[open]) {
