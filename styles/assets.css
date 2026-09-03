@@ -1,0 +1,142 @@
+.loading-spinner {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: calc(60px + (100vh - 30vh - 60px) / 2);
+    height: 20vh;
+    z-index: 2;
+    animation: loadingSpinner 10s linear infinite;
+}
+
+@keyframes loadingSpinner {
+    0% {
+        transform: scale(1);
+    }
+
+    5.5% {
+        transform: scale(1.25);
+        /* 1. Schlag */
+    }
+
+    11% {
+        transform: scale(1.1);
+        /* Kurzes Sinken */
+    }
+
+    16.5% {
+        transform: scale(1.35);
+        /* 2. Hauptschlag */
+    }
+
+    22% {
+        transform: scale(1);
+        /* Ruhephase */
+    }
+
+    27.5% {
+        transform: scale(1.25);
+    }
+
+    33% {
+        transform: scale(1.1);
+    }
+
+    38.5% {
+        transform: scale(1.35);
+    }
+
+    44% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    56% {
+        transform: scale(1.1);
+    }
+
+    61.5% {
+        transform: scale(1.35);
+    }
+
+    67% {
+        transform: scale(1);
+    }
+
+    72.5% {
+        transform: scale(1.25);
+    }
+
+    78% {
+        transform: scale(1.1);
+    }
+
+    83.5% {
+        transform: scale(1.35);
+    }
+
+    89% {
+        transform: scale(1);
+    }
+
+    94.5% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+input {
+    text-align: center;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius-small);
+    padding: 8px 0 8px 8px;
+}
+
+.input-loading-amount {
+    width: 60px;
+}
+
+.input-search {
+    width: 100px;
+}
+
+button {
+    background-color: var(--color-light);
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+}
+
+.pokemon-card>button {
+    background-color: transparent;
+}
+
+.btn-reverse {
+    border-radius: var(--border-radius-small-reverse);
+}
+
+.btn-icon {
+    padding: 0 8px;
+}
+
+.btn-load-more {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    width: fit-content;
+}
+
+/* focus and hover */
+
+:focus-visible {
+    outline: none;
+}

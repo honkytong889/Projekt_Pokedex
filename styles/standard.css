@@ -1,31 +1,42 @@
-input {
-    text-align: center;
-    background-color: var(--color-font);
-    border: 1px solid var(--color-font);
-    border-radius: 5px;
-    padding: 8px 0 8px 8px;
+:root {
+    --color-dark: rgb(0, 6, 1);
+    --color-light: rgb(247, 248, 242);
+    --color-font: rgba(255, 255, 255, 1);
+    --border-radius-small: 20px;
+    --border-radius-small-reverse: 24px;
+    --border-radius-big: 30px;
+
+    /* pokemon types_: */
+    --normal: rgb(183, 183, 168);
+    --fire: rgb(255, 96, 67);
+    --water: rgb(81, 168, 255);
+    --electric: rgb(255, 212, 81);
+    --grass: rgb(139, 212, 110);
+    --ice: rgb(102, 204, 255);
+    --fighting: rgb(197, 110, 96);
+    --poison: rgb(183, 110, 168);
+    --ground: rgb(226, 197, 110);
+    --flying: rgb(154, 168, 255);
+    --psychic: rgb(255, 110, 168);
+    --bug: rgb(183, 197, 67);
+    --rock: rgb(197, 183, 125);
+    --ghost: rgb(125, 125, 197);
+    --dragon: rgb(139, 125, 241);
+    --dark: rgb(139, 110, 96);
+    --steel: rgb(183, 183, 197);
+    --fairy: rgb(241, 168, 241);
 }
 
-label {
-    color: var(--color-font);
-    font-size: 24px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
-.input-loading-amount {
-    width: 60px;
-}
-
-.input-search {
-    width: 120px;
-    border-radius: 5px;
-}
-
-.btn-icon {
-    width: 35px;
-    height: 33px;
-    background-color: white;
-    border: none;
-    border-radius: 30%;
+ol,
+ul {
+    list-style-type: none;
 }
 
 .wrapper {
@@ -38,4 +49,22 @@ label {
 
 .d-flex {
     display: flex;
+}
+
+dialog {
+    background-color: transparent;
+    border: none;
+    margin: auto;
+    max-height: 90vh;
+    overflow: visible;
+    padding: 0;
+    width: min(100%, 900px);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+html:has(dialog[open]) {
+    overflow: hidden;
 }
