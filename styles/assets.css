@@ -12,81 +12,83 @@
 
 @keyframes loadingSpinner {
     0% {
-        filter: drop-shadow(0px 0px 80px var(--normal));
-        transform: rotate(0deg);
+        transform: scale(1);
     }
 
     5.5% {
-        filter: drop-shadow(0px 0px 80px var(--fire));
+        transform: scale(1.25);
+        /* 1. Schlag */
     }
 
     11% {
-        filter: drop-shadow(0px 0px 80px var(--water));
+        transform: scale(1.1);
+        /* Kurzes Sinken */
     }
 
     16.5% {
-        filter: drop-shadow(0px 0px 80px var(--electric));
+        transform: scale(1.35);
+        /* 2. Hauptschlag */
     }
 
     22% {
-        filter: drop-shadow(0px 0px 80px var(--grass));
+        transform: scale(1);
+        /* Ruhephase */
     }
 
     27.5% {
-        filter: drop-shadow(0px 0px 80px var(--ice));
+        transform: scale(1.25);
     }
 
     33% {
-        filter: drop-shadow(0px 0px 80px var(--fighting));
+        transform: scale(1.1);
     }
 
     38.5% {
-        filter: drop-shadow(0px 0px 80px var(--poison));
+        transform: scale(1.35);
     }
 
     44% {
-        filter: drop-shadow(0px 0px 80px var(--ground));
+        transform: scale(1);
     }
 
     50% {
-        filter: drop-shadow(0px 0px 80px var(--flying));
+        transform: scale(1.25);
     }
 
     56% {
-        filter: drop-shadow(0px 0px 80px var(--psychic));
+        transform: scale(1.1);
     }
 
     61.5% {
-        filter: drop-shadow(0px 0px 80px var(--bug));
+        transform: scale(1.35);
     }
 
     67% {
-        filter: drop-shadow(0px 0px 80px var(--rock));
+        transform: scale(1);
     }
 
     72.5% {
-        filter: drop-shadow(0px 0px 80px var(--ghost));
+        transform: scale(1.25);
     }
 
     78% {
-        filter: drop-shadow(0px 0px 80px var(--dragon));
+        transform: scale(1.1);
     }
 
     83.5% {
-        filter: drop-shadow(0px 0px 80px var(--dark));
+        transform: scale(1.35);
     }
 
     89% {
-        filter: drop-shadow(0px 0px 80px var(--steel));
+        transform: scale(1);
     }
 
     94.5% {
-        filter: drop-shadow(0px 0px 80px var(--fairy));
+        transform: scale(1.25);
     }
 
     100% {
-        filter: drop-shadow(0px 0px 80px var(--normal));
-        transform: rotate(360deg);
+        transform: scale(1);
     }
 }
 
@@ -126,7 +128,7 @@ button {
 }
 
 .btn-load-more {
-    color: var(--color-dark);
+    color: black;
     font-size: 16px;
     font-weight: 500;
     padding: 8px 16px;

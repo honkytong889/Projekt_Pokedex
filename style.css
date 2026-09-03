@@ -87,6 +87,11 @@ footer>a>img {
     width: 24px;
 }
 
+header>div>button>img {
+    height: 37px;
+    padding-top: 5px;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -239,32 +244,120 @@ main {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1279px) {
+    .evolution-chain {
+        gap: 60px;
+    }
+
+    .evolution-chain>li>img {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header>div>label {
+        display: none;
+    }
+
+    .pokemon-details-container-child {
+        padding: 24px;
+    }
+
+    .pokemon-details-container-child>p {
+        font-size: 16px;
+        width: 100px;
+    }
+
+    .evolution-chain {
+        justify-self: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .evolution-chain>li>img {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
     .hide-mobile {
         display: none;
     }
 
     .show-mobile {
         display: flex;
-        width: 100%;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 16px;
+        padding: 8px 8px;
     }
 
     .pokemon-details-container-parent {
-        flex-direction: column;
-        height: auto;
+        height: 350px;
     }
 
     .pokemon-details-container-child-img {
-        order: -1;
+        margin-bottom: 16px;
     }
 
-    .overlay-arrow-container {
-        gap: 8px;
+    .pokemon-details-container-child-img>img {
+        max-height: calc(100% - 25px);
+    }
+
+    .pokemon-details-container-child-img>div {
+        justify-self: center;
+    }
+
+    .pokemon-details-container-child {
+        margin-right: 24px;
+        margin-bottom: 16px;
+        height: auto;
+        padding: 16px 0;
+    }
+
+    .pokemon-details-container-child>p {
+        padding: 0;
+        width: 80px;
     }
 
     .evolution-chain {
-        gap: 16px;
-        flex-wrap: wrap;
-        padding: 0 16px;
+        padding: 0 20px;
+    }
+
+    .evolution-chain>li>img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pokemon-details-container-parent {
+        height: 270px;
+    }
+
+    .pokemon-details-container-child-img>img {
+        max-height: calc(100% - 54px);
+    }
+
+    .pokemon-details-container-child-img>div {
+        flex-direction: column;
+        align-self: flex-end;
+        gap: 4px;
+    }
+
+    .evolution-chain {
+        padding: 0 8px;
+    }
+
+    .evolution-chain>li>h4 {
+        display: none;
+    }
+
+    .evolution-chain>li>img {
+        width: 60%;
     }
 }
