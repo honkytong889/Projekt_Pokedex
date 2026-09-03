@@ -1,7 +1,7 @@
 /* text-styling */
 
 * {
-    font-family: 'Barlow', sans-serif;
+    font-family: palanquin, sans-serif;
     color: var(--color-font);
     text-align: center;
 }
@@ -136,6 +136,7 @@ main {
 
 .container-load-more-button {
     margin-top: 24px;
+    color: black;
 }
 
 /* dialog */
