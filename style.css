@@ -175,7 +175,7 @@ main {
 }
 
 .pokemon-overlay>section {
-    margin-bottom: 24px;
+
     width: 100%;
 }
 
@@ -298,8 +298,8 @@ main {
     }
 
     .evolution-chain li img {
-        width: 150px;
-        height: 150px !important;
+        width: 100px;
+        height: 100px !important;
         object-fit: contain;
     }
 }
@@ -366,8 +366,8 @@ main {
 
 
     .evolution-chain li img {
-        width: 150px;
-        height: 150px !important;
+        width: 100px;
+        height: 100px !important;
         object-fit: contain;
     }
 
