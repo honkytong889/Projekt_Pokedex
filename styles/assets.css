@@ -125,6 +125,8 @@ button {
 
 .btn-icon {
     padding: 0 8px;
+    height: 40px;
+    width: 40px;
 }
 
 .btn-load-more {

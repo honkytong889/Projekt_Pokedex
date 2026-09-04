@@ -284,8 +284,10 @@ main {
         gap: 15px;
     }
 
-    .evolution-chain>li>img {
-        width: 80%;
+    .evolution-chain li img {
+        width: 150px;
+        height: 150px !important;
+        object-fit: contain;
     }
 }
 
@@ -352,7 +354,7 @@ main {
 
     .evolution-chain li img {
         width: 150px;
-        height: 100px !important;
+        height: 150px !important;
         object-fit: contain;
     }
 
