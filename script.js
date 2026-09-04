@@ -7,9 +7,8 @@ const renderedPokemons = [];
 let searchedPokemons = [];
 let dialogArray = [];
 
-// ==========================================
+
 // INITIALIZATION & FETCHING
-// ==========================================
 
 async function init() {
     toggleLoadingSpinner(true);
@@ -91,9 +90,7 @@ function pushPokemonImageToCache(pokeID, name, type1, type2) {
     });
 }
 
-// ==========================================
 // RENDERING LOGIC
-// ==========================================
 
 async function renderPokemonCards(currentArray) {
     for (let index = 0; index < currentArray.length; index++) {
@@ -142,9 +139,7 @@ function renderLoadMoreButton(amount) {
     }
 }
 
-// ==========================================
 // EVENT HANDLERS
-// ==========================================
 
 async function loadMorePokemon() {
     const inputEl = document.getElementById("LoadingAmount");
@@ -179,9 +174,7 @@ function pressEnter(event, action) {
     }
 }
 
-// ==========================================
 // OVERLAY & DIALOG LOGIC
-// ==========================================
 
 async function showDialog(pokeID) {
     dialogArray = searchedPokemons.length === 0 ? renderedPokemons : searchedPokemons;
@@ -254,9 +247,9 @@ function getPokemonStats(data) {
     return stats;
 }
 
-// ==========================================
+
 // EVOLUTION CHAIN LOGIC
-// ==========================================
+
 
 async function renderEvolutionChain(pokeID) {
     await checkEvolutionChainLoaded(pokeID);
@@ -332,9 +325,7 @@ function addEvolutionDataToPokemonData(pokeID, evoData) {
     });
 }
 
-// ==========================================
 // SEARCH LOGIC
-// ==========================================
 
 function checkSearchInput() {
     const searchInput = document.getElementById("Search");
