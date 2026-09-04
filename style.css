@@ -248,7 +248,7 @@ main {
 }
 
 .btn-img-wrapper img {
-    height: 200px;
+    height: 130px;
     object-fit: contain;
     background: transparent !important;
     background-image: none !important;
@@ -267,9 +267,12 @@ main {
         gap: 60px;
     }
 
-    .evolution-chain>li>img {
-        width: 180px;
+    .evolution-chain li img {
+        width: 100px;
+        height: 100px !important;
+        object-fit: contain;
     }
+
 }
 
 @media screen and (max-width: 768px) {
