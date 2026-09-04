@@ -78,7 +78,6 @@ function pushPokemonImageToCache(pokeID, name, type1, type2) {
 
         const img = new Image();
         img.role = "button";
-        img.style.background = `linear-gradient(to right top, var(--${type1}) 0 40%, var(--${type2}) 60% 100%)`;
         img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeID}.png`;
         img.alt = name;
 
