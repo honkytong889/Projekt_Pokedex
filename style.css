@@ -237,9 +237,21 @@ main {
     height: 20%;
 }
 
-.evolution-chain>li>button>img {
-    height: 200px;
+.btn-img-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
     cursor: pointer;
+}
+
+.btn-img-wrapper img {
+    height: 200px;
+    object-fit: contain;
+    background: transparent !important;
+    background-image: none !important;
 }
 
 .hide-mobile {
