@@ -169,6 +169,11 @@ main {
     font-size: 20px;
 }
 
+.btn-icon img {
+    height: 20px;
+    padding-top: 5px;
+}
+
 .pokemon-overlay>section {
     margin-bottom: 24px;
     width: 100%;
