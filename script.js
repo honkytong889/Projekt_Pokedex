@@ -15,16 +15,22 @@ let preSearchRenderedState = [];
 async function init() {
     setupDialogListeners();
     toggleLoadingSpinner(true);
-    const success = await loadInitialPokemonBatch();
-    if (!success) {
-        handleInitError();
+
+    try {
+        const success = await loadInitialPokemonBatch();
+        if (!success) throw new Error("Initial Batch fehlgeschlagen");
+
+        const initialIDs = createIdArray(1, loadingAmount);
+        await renderPokemonCards(initialIDs);
+        showPokemonListContainer();
+        renderLoadMoreButton(loadingAmount);
+    } catch (error) {
+        showGlobalErrorMessage("Die Pokémon konnten nicht geladen werden. Bitte überprüfe deine Internetverbindung.");
         return;
+    } finally {
+        toggleLoadingSpinner(false);
     }
-    const initialIDs = createIdArray(1, loadingAmount);
-    await renderPokemonCards(initialIDs);
-    showPokemonListContainer();
-    renderLoadMoreButton(loadingAmount);
-    toggleLoadingSpinner(false);
+
     prefetchRemainingPokemonInBackground();
 }
 
@@ -76,12 +82,24 @@ function toggleLoadingSpinnerOverlay(show) {
 }
 
 function showGlobalErrorMessage(message) {
+    toggleLoadingSpinner(false);
+
     const listContainer = document.getElementById("PokemonList");
     if (listContainer) {
-        listContainer.innerHTML = `<div class="error-message-box"><p>${message}</p></div>`;
+        listContainer.classList.add("d-flex");
+        listContainer.innerHTML = `
+            <div class="error-box">
+                <h3>Upps! Etwas ist schiefgelaufen</h3>
+                <p>${message}</p>
+                <button class="btn-retry" onclick="location.reload()">Seite neu laden</button>
+            </div>
+        `;
     }
+
     const loadMoreBtn = document.getElementById("LoadMoreButton");
-    if (loadMoreBtn) loadMoreBtn.innerHTML = "";
+    if (loadMoreBtn) {
+        loadMoreBtn.innerHTML = "";
+    }
 }
 
 

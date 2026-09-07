@@ -281,6 +281,47 @@ main {
     display: none;
 }
 
+.error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    margin: 40px auto;
+    max-width: 480px;
+    background-color: #0d0d0d;
+    border: 2px solid #ef5350;
+    border-radius: 12px;
+    color: #c62828;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error-box h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+}
+
+.error-box p {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+}
+
+.btn-retry {
+    background-color: #c62828;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.btn-retry:hover {
+    background-color: #b71c1c;
+}
+
 @media screen and (max-width: 1279px) {
     .evolution-chain {
         gap: 60px;
