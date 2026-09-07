@@ -401,6 +401,7 @@ function extractEvolutionChainIds(evoData) {
 
 
 // SEARCH & RESET LOGIC
+let preSearchRenderedState = [];
 
 function checkSearchInput() {
     const searchInput = document.getElementById("Search");
@@ -411,6 +412,7 @@ function checkSearchInput() {
 
     if (query.length === 0) {
         if (noResultsEl) noResultsEl.classList.remove("show");
+        showAllLoadedPokemon();
         return;
     }
     handleSearchQuery(query, noResultsEl);
@@ -433,26 +435,33 @@ function showShortSearchWarning(noResultsEl) {
 }
 
 function executePokemonSearch(query, noResultsEl) {
+    if (preSearchRenderedState.length === 0 && renderedPokemons.length > 0) preSearchRenderedState = [...renderedPokemons];
+    const filteredResults = Object.keys(pokemonDataFetched).filter(id => {
+        const p = pokemonDataFetched[id];
+        return p && ((p.name && p.name.toLowerCase().includes(query)) || (p.id && p.id.toString() === query) || id.toString() === query);
+    }).map(Number);
     resetListContainerAndState();
-    searchedPokemons = filterPokemonsByQuery(query);
-
-    if (searchedPokemons.length === 0) {
-        if (noResultsEl) {
-            noResultsEl.innerText = "Keine Pokémon gefunden.";
-            noResultsEl.classList.add("show");
-        }
+    searchedPokemons = filteredResults;
+    if (searchedPokemons.length === 0 && noResultsEl) {
+        noResultsEl.innerText = "Keine Pokémon gefunden.";
+        noResultsEl.classList.add("show");
     } else {
         renderPokemonCards(searchedPokemons);
     }
 }
 
-function filterPokemonsByQuery(query) {
-    return Object.keys(pokemonDataFetched)
-        .filter(id => {
-            const poke = pokemonDataFetched[id];
-            return poke.name.toLowerCase().includes(query) || id.toString() === query;
-        })
-        .map(Number);
+function filterPokemonsByQuery(query, sourceList) {
+    return sourceList.filter(id => {
+        if (!id) return false;
+        const poke = pokemonDataFetched[id];
+        if (!poke) return false;
+
+        const nameMatch = poke.name ? poke.name.toLowerCase().includes(query) : false;
+        const pokeIdStr = poke.id !== undefined && poke.id !== null ? poke.id.toString() : "";
+        const idMatch = pokeIdStr === query || id.toString() === query;
+
+        return nameMatch || idMatch;
+    });
 }
 
 function resetListContainerAndState() {
@@ -469,18 +478,9 @@ function showAllLoadedPokemon() {
     if (searchInput) searchInput.value = "";
     if (noResultsEl) noResultsEl.classList.remove("show");
 
+    const idsToRestore = preSearchRenderedState.length > 0 ? [...preSearchRenderedState] : [1];
+    preSearchRenderedState = [];
     resetListContainerAndState();
-    const allFetchedIds = Object.keys(pokemonDataFetched)
-        .map(Number)
-        .sort((a, b) => a - b);
 
-    renderPokemonCards(allFetchedIds);
-}
-function pressEnter(event, action) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        if (action === 'search') {
-            checkSearchInput();
-        }
-    }
+    renderPokemonCards(idsToRestore);
 }
