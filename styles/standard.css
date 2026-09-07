@@ -77,13 +77,12 @@ html:has(dialog[open]) {
     left: 0;
     right: 0;
     margin-top: 4px;
-    font-size: 0.85rem;
+    font-size: 1.25rem;
     color: #ff4d4d;
     font-weight: 600;
     text-align: center;
     pointer-events: none;
     border-radius: var(--border-radius-small);
-    background-color: var(--color-light);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }

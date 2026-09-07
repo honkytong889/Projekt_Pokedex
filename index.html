@@ -28,7 +28,7 @@
         <div class="search-container" style="position: relative;">
             <label for="Search" class="d-none">Search Pokémon:</label>
             <input data-id="search-input" id="Search" class="input-search" type="search" name="search" minlength="3"
-                placeholder="min 3 lts" required oninput="checkSearchInput()" onkeyup="pressEnter(event, 'search')">
+                placeholder="min 3 lts" required onkeyup="pressEnter(event, 'search')">
             <button data-id="search-button" onclick="checkSearchInput()" type="submit" class="btn-icon">
                 <img src="assets/icons/search.svg" alt="search for Pokémon">
             </button>
@@ -36,6 +36,7 @@
     </header>
     <main class="wrapper data-id=" content" id="PageStart">
         <img id="LoadingSpinner" class="d-none" src="assets/img/pokeball.webp" alt="Poké Ball">
+
         <h1>Pokedex</h1>
         <ol id="PokemonList" class="container-pokemon-cards d-none">
         </ol>

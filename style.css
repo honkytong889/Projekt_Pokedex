@@ -42,7 +42,6 @@ h4 {
     background-color: var(--color-dark);
     border: 1px solid var(--color-font);
     border-radius: var(--border-radius-big);
-
 }
 
 /* body */
@@ -63,12 +62,16 @@ body {
     right: 0;
     z-index: 1;
     height: 60px;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }
 
 header a {
@@ -76,6 +79,7 @@ header a {
 }
 
 header>div {
+    position: relative;
     align-items: center;
     display: flex;
     gap: 8px;
@@ -84,6 +88,17 @@ header>div {
 header>div>span {
     text-align: left;
     text-decoration: none;
+}
+
+/* Platzhalter-Klasse für die Such-Warnung gegen Layout-Shift */
+#NoPokemonsFound {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: #ff4d4d;
+    margin-top: 4px;
 }
 
 .logo-wrapper {
@@ -116,6 +131,8 @@ footer {
     justify-content: center;
     align-items: center;
     margin-top: 24px;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }
 
 footer>a {
@@ -172,7 +189,7 @@ main {
     align-items: center;
     border: 1px solid var(--color-light);
     border-radius: var(--border-radius-big);
-    max-height: 90vh;
+    height: 750px;
     overflow-y: auto;
 }
 
@@ -194,7 +211,6 @@ main {
 }
 
 .pokemon-overlay>section {
-
     width: 100%;
 }
 
@@ -246,14 +262,19 @@ main {
     width: 100%;
 }
 
-
 .evolution-chain {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 40px;
     gap: 80px;
-    height: 20%;
+    min-height: 140px;
+}
+
+.evolution-chain img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
 .btn-img-wrapper {
@@ -327,12 +348,12 @@ main {
         gap: 60px;
     }
 
-    .evolution-chain li img {
+    .evolution-chain li img,
+    .evolution-chain img {
         width: 100px;
         height: 100px !important;
         object-fit: contain;
     }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -358,9 +379,11 @@ main {
         justify-self: center;
         justify-content: space-between;
         gap: 15px;
+        min-height: 110px;
     }
 
-    .evolution-chain li img {
+    .evolution-chain li img,
+    .evolution-chain img {
         width: 100px;
         height: 100px !important;
         object-fit: contain;
@@ -385,56 +408,56 @@ main {
         padding: 8px 8px;
     }
 
-    .pokemon-details-container-parent {
-        height: 350px;
-    }
-
-    .pokemon-details-container-child-img {
-        margin-bottom: 30px;
-    }
-
-    .pokemon-details-container-child-img>img {
-        max-height: calc(100% - 25px);
-    }
-
-    .pokemon-details-container-child-img>div {
-        justify-self: center;
-    }
-
-    .pokemon-details-container-child {
-        margin-right: 24px;
-        margin-bottom: 16px;
-        height: auto;
-        padding: 16px 0;
-    }
-
-    .pokemon-details-container-child>p {
-        padding: 0;
-        width: 80px;
-    }
-
-    .overlay-arrow-container {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 15px;
-        gap: 5px;
-    }
-
-
-    .evolution-chain {
-        padding: 0 8px;
-        gap: 8px;
-    }
-
-
-
-    .evolution-chain li img {
-        width: 100px;
-        height: 100px !important;
-        object-fit: contain;
-    }
 
 }
+
+.pokemon-details-container-parent {
+    height: 350px;
+}
+
+.pokemon-details-container-child-img {
+    margin-bottom: 30px;
+}
+
+.pokemon-details-container-child-img>img {
+    max-height: calc(100% - 25px);
+}
+
+.pokemon-details-container-child-img>div {
+    justify-self: center;
+}
+
+.pokemon-details-container-child {
+    margin-right: 24px;
+    margin-bottom: 16px;
+    height: auto;
+
+}
+
+.pokemon-details-container-child>p {
+    padding: 0;
+
+}
+
+.overlay-arrow-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    gap: 5px;
+}
+
+.evolution-chain {
+    padding: 0 8px;
+    gap: 8px;
+}
+
+.evolution-chain li img,
+.evolution-chain img {
+    width: 100px;
+    height: 100px !important;
+    object-fit: contain;
+}
+
 
 @media screen and (max-width: 480px) {
     label {
@@ -446,6 +469,7 @@ main {
         max-width: 400px;
         margin: 0 auto;
         padding: 8px;
+        height: 650px;
     }
 
     .btn-icon img {
@@ -507,17 +531,18 @@ main {
         gap: 5px;
     }
 
-
     .evolution-chain {
         padding: 0 8px;
         gap: 8px;
+        min-height: 70px;
     }
 
     .evolution-chain>li>h4 {
         display: none;
     }
 
-    .evolution-chain li img {
+    .evolution-chain li img,
+    .evolution-chain img {
         width: 55px;
         height: 55px !important;
         object-fit: contain;
