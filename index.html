@@ -18,25 +18,27 @@
 
 <body onload="init()">
     <header class="wrapper border-big fixed-header">
-        <div>
-            <img src="assets/img/pokeball.webp" alt="Pokeball">
-            <span>Pokedex</span>
-        </div>
-        <div>
-            <label for="Search">Search Pokémon:</label>
+        <a href="#PageStart" onclick="event.preventDefault(); showAllLoadedPokemon()">
+            <div class="logo-wrapper">
+                <img src="assets/img/pokeball.webp" alt="Pokeball Logo">
+                <span>Pokedex</span>
+            </div>
+        </a>
+        <div id="NoPokemonsFound"></div>
+        <div class="search-container" style="position: relative;">
+            <label for="Search" class="d-none">Search Pokémon:</label>
             <input data-id="search-input" id="Search" class="input-search" type="search" name="search" minlength="3"
-                placeholder="min 3 lts" required onkeyup="pressEnter(event, 'search')">
+                placeholder="min 3 lts" required oninput="checkSearchInput()" onkeyup="pressEnter(event, 'search')">
             <button data-id="search-button" onclick="checkSearchInput()" type="submit" class="btn-icon">
                 <img src="assets/icons/search.svg" alt="search for Pokémon">
             </button>
         </div>
     </header>
-    <main data-id="content" id="PageStart">
+    <main class="wrapper data-id=" content" id="PageStart">
         <img id="LoadingSpinner" class="d-none" src="assets/img/pokeball.webp" alt="Poké Ball">
         <h1>Pokedex</h1>
         <ol id="PokemonList" class="container-pokemon-cards d-none">
         </ol>
-        <div id="NoPokemonsFound"></div>
         <div id="LoadMoreButton" class="container-load-more-button">
         </div>
         <dialog data-id="dialog" id="Dialog">
@@ -45,8 +47,8 @@
         </dialog>
     </main>
     <footer class="border-big">
-        <a href="#PageStart">
-            <img onclick="showAllLoadedPokemon()" src="assets/img/pokeball.webp" alt="to the start of the page">
+        <a href="#PageStart" onclick="event.preventDefault(); showAllLoadedPokemon()">
+            <img src="assets/img/pokeball.webp" alt="Nach oben scrollen">
         </a>
     </footer>
 </body>

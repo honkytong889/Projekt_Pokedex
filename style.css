@@ -71,6 +71,10 @@ header {
     justify-content: space-between;
 }
 
+header a {
+    text-decoration: none;
+}
+
 header>div {
     align-items: center;
     display: flex;
@@ -79,12 +83,27 @@ header>div {
 
 header>div>span {
     text-align: left;
+    text-decoration: none;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+header a img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    text-decoration: none;
 }
 
 header>div>img,
 footer>a>img {
     padding: 8px 0;
-    width: 24px;
+    width: 30px;
 }
 
 header>div>button>img {
@@ -377,6 +396,10 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+    label {
+        display: none;
+    }
+
     .pokemon-overlay {
         width: 92% !important;
         max-width: 400px;
@@ -431,7 +454,7 @@ main {
     }
 
     .pokemon-details-container-child>p {
-        font-size: 13px !important;
+        font-size: 16px !important;
         padding: 2px 0;
         width: 100%;
     }
