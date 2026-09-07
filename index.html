@@ -18,10 +18,12 @@
 
 <body onload="init()">
     <header class="wrapper border-big fixed-header">
-        <div>
-            <img src="assets/img/pokeball.webp" alt="Pokeball">
-            <span>Pokedex</span>
-        </div>
+        <a href="#PageStart" onclick="showAllLoadedPokemon()">
+            <div>
+                <img src="assets/img/pokeball.webp" alt="Pokeball Logo">
+                <span>Pokedex</span>
+            </div>
+        </a>
         <div>
             <label for="Search">Search Pokémon:</label>
             <input data-id="search-input" id="Search" class="input-search" type="search" name="search" minlength="3"
@@ -45,8 +47,8 @@
         </dialog>
     </main>
     <footer class="border-big">
-        <a href="#PageStart">
-            <img onclick="showAllLoadedPokemon()" src="assets/img/pokeball.webp" alt="to the start of the page">
+        <a href="#PageStart" onclick="showAllLoadedPokemon()">
+            <img src="assets/img/pokeball.webp" alt="Nach oben scrollen">
         </a>
     </footer>
 </body>
