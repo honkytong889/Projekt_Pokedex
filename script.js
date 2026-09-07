@@ -7,6 +7,7 @@ const renderedPokemons = [];
 let searchedPokemons = [];
 let dialogArray = [];
 let searchTimeout = null;
+let preSearchRenderedState = [];
 
 
 // APPLICATION INITIALIZATION
@@ -110,9 +111,11 @@ async function fetchSinglePokemon(pokeID) {
 
 function saveFetchedPokemonData(pokeID, data) {
     pokemonDataFetched[pokeID] = {
+        id: pokeID,
         responsePokemon: data,
         name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
-        types: data.types.map(t => t.type.name)
+        types: data.types.map(t => t.type.name),
+        evolutionChain: pokemonDataFetched[pokeID]?.evolutionChain || null
     };
 }
 
@@ -135,12 +138,11 @@ function pushPokemonImageToCache(pokeID, name) {
 }
 
 
-// RENDERING LOGIC
+// RENDERING LOGIC (Parallelisiert für maximale Performance)
 
 async function renderPokemonCards(currentArray) {
-    for (let index = 0; index < currentArray.length; index++) {
-        await renderOnePokemonCard(currentArray[index]);
-    }
+    const renderPromises = currentArray.map(pokeID => renderOnePokemonCard(pokeID));
+    await Promise.all(renderPromises);
 }
 
 async function renderOnePokemonCard(pokeID) {
@@ -247,7 +249,7 @@ function setupDialogListeners() {
 }
 
 async function showDialog(pokeID) {
-    dialogArray = searchedPokemons.length === 0 ? renderedPokemons : searchedPokemons;
+    dialogArray = searchedPokemons.length > 0 ? searchedPokemons : renderedPokemons;
     const dialog = document.getElementById("Dialog");
     if (!dialog) return;
 
@@ -378,7 +380,9 @@ async function getEvolutionChain(pokeID) {
 function addEvolutionDataToPokemonData(pokeID, evoData) {
     const evolutionChain = extractEvolutionChainIds(evoData);
     evolutionChain.forEach(id => {
-        if (pokemonDataFetched[id]) {
+        if (!pokemonDataFetched[id]) {
+            pokemonDataFetched[id] = { evolutionChain };
+        } else {
             pokemonDataFetched[id].evolutionChain = evolutionChain;
         }
     });
@@ -401,7 +405,6 @@ function extractEvolutionChainIds(evoData) {
 
 
 // SEARCH & RESET LOGIC
-let preSearchRenderedState = [];
 
 function checkSearchInput() {
     const searchInput = document.getElementById("Search");
@@ -410,12 +413,13 @@ function checkSearchInput() {
     const noResultsEl = document.getElementById("NoPokemonsFound");
     if (searchTimeout) clearTimeout(searchTimeout);
 
-    if (query.length === 0) {
-        if (noResultsEl) noResultsEl.classList.remove("show");
-        showAllLoadedPokemon();
+    if (query.length < 3) {
+        showShortSearchWarning(noResultsEl);
         return;
     }
-    handleSearchQuery(query, noResultsEl);
+
+    if (noResultsEl) noResultsEl.classList.remove("show");
+    executePokemonSearch(query, noResultsEl);
 }
 
 function handleSearchQuery(query, noResultsEl) {
@@ -435,13 +439,14 @@ function showShortSearchWarning(noResultsEl) {
 }
 
 function executePokemonSearch(query, noResultsEl) {
-    if (preSearchRenderedState.length === 0 && renderedPokemons.length > 0) preSearchRenderedState = [...renderedPokemons];
-    const filteredResults = Object.keys(pokemonDataFetched).filter(id => {
-        const p = pokemonDataFetched[id];
-        return p && ((p.name && p.name.toLowerCase().includes(query)) || (p.id && p.id.toString() === query) || id.toString() === query);
-    }).map(Number);
+    if (preSearchRenderedState.length === 0 && renderedPokemons.length > 0) {
+        preSearchRenderedState = [...renderedPokemons];
+    }
+
+    const filteredResults = filterPokemonsByQuery(query, Object.keys(pokemonDataFetched).map(Number));
     resetListContainerAndState();
     searchedPokemons = filteredResults;
+
     if (searchedPokemons.length === 0 && noResultsEl) {
         noResultsEl.innerText = "Keine Pokémon gefunden.";
         noResultsEl.classList.add("show");
@@ -454,11 +459,10 @@ function filterPokemonsByQuery(query, sourceList) {
     return sourceList.filter(id => {
         if (!id) return false;
         const poke = pokemonDataFetched[id];
-        if (!poke) return false;
+        if (!poke || !poke.name) return false;
 
-        const nameMatch = poke.name ? poke.name.toLowerCase().includes(query) : false;
-        const pokeIdStr = poke.id !== undefined && poke.id !== null ? poke.id.toString() : "";
-        const idMatch = pokeIdStr === query || id.toString() === query;
+        const nameMatch = poke.name.toLowerCase().includes(query);
+        const idMatch = poke.id !== undefined ? poke.id.toString() === query : id.toString() === query;
 
         return nameMatch || idMatch;
     });
