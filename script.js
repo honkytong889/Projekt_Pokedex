@@ -163,18 +163,21 @@ async function searchForPokemon(searchInput) {
 
 function renderMassageNoPokemonsFound(searchInput) {
     const errorContainer = document.getElementById('NoPokemonsFound');
-    errorContainer.innerHTML = `<p data-id="not-found">Es gibt kein Pokémon mit "${searchInput}"!</p>`;
+    errorContainer.innerHTML = `<p data-id="not-found">Sorry, there are no Pokémon with "${searchInput}"!</p>`;
     errorContainer.classList.add("show");
 }
 
 function renderMessageMinLetters() {
-    document.getElementById('NoPokemonsFound').innerHTML = `<p data-id="min-letters">Please enter at least 3 letters for search.</p>`;
+    const errorContainer = document.getElementById('NoPokemonsFound');
+    errorContainer.innerHTML = `<p data-id="min-letters">Please enter at least 3 letters for search.</p>`;
+    errorContainer.classList.add("show");
 }
 
 function clearMessageMinLetters() {
-    document.getElementById('NoPokemonsFound').innerHTML = ``;
+    const errorContainer = document.getElementById('NoPokemonsFound');
+    errorContainer.innerHTML = ``;
+    errorContainer.classList.remove("show");
 }
-
 async function showAllLoadedPokemon() {
     document.getElementById('LoadingSpinner').classList.add("loading-spinner");
     searchedPokemons = [];
@@ -339,6 +342,17 @@ function renderApiErrorMessage(message) {
             <h3>Upps! An error occurred</h3>
             <p>${message}</p>
             <button class="btn-retry" onclick="location.reload()">Try Again</button>
+        </div>
+    `;
+    errorContainer.classList.add("show");
+}
+function renderMessageMinLetters() {
+    const errorContainer = document.getElementById('NoPokemonsFound');
+    errorContainer.innerHTML = `
+        <div class="error-box">
+            <h3>Hinweis</h3>
+            <p>Please enter at least 3 letters for search.</p>
+            <button class="btn-retry" onclick="showAllLoadedPokemon()">Zurück zum Start</button>
         </div>
     `;
     errorContainer.classList.add("show");
