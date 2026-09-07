@@ -454,7 +454,7 @@ main {
     }
 
     .pokemon-details-container-child>p {
-        font-size: 13px !important;
+        font-size: 16px !important;
         padding: 2px 0;
         width: 100%;
     }

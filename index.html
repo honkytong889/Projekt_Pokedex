@@ -24,6 +24,7 @@
                 <span>Pokedex</span>
             </div>
         </a>
+        <div id="NoPokemonsFound"></div>
         <div class="search-container" style="position: relative;">
             <label for="Search" class="d-none">Search Pokémon:</label>
             <input data-id="search-input" id="Search" class="input-search" type="search" name="search" minlength="3"
@@ -31,10 +32,9 @@
             <button data-id="search-button" onclick="checkSearchInput()" type="submit" class="btn-icon">
                 <img src="assets/icons/search.svg" alt="search for Pokémon">
             </button>
-            <div id="NoPokemonsFound"></div>
         </div>
     </header>
-    <main data-id="content" id="PageStart">
+    <main class="wrapper data-id=" content" id="PageStart">
         <img id="LoadingSpinner" class="d-none" src="assets/img/pokeball.webp" alt="Poké Ball">
         <h1>Pokedex</h1>
         <ol id="PokemonList" class="container-pokemon-cards d-none">
