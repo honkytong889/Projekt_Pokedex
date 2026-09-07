@@ -475,16 +475,16 @@ function resetListContainerAndState() {
     searchedPokemons = [];
 }
 
-function showAllLoadedPokemon() {
-    const noResultsEl = document.getElementById("NoPokemonsFound");
-    const searchInput = document.getElementById("Search");
+async function showAllLoadedPokemon() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const input = document.getElementById("Search");
+    if (input) input.value = "";
+    document.getElementById("NoPokemonsFound")?.classList.remove("show");
 
-    if (searchInput) searchInput.value = "";
-    if (noResultsEl) noResultsEl.classList.remove("show");
-
-    const idsToRestore = preSearchRenderedState.length > 0 ? [...preSearchRenderedState] : [1];
-    preSearchRenderedState = [];
-    resetListContainerAndState();
-
-    renderPokemonCards(idsToRestore);
+    if (preSearchRenderedState.length > 0) {
+        const idsToRestore = [...preSearchRenderedState];
+        preSearchRenderedState = [];
+        resetListContainerAndState();
+        await renderPokemonCards(idsToRestore);
+    }
 }

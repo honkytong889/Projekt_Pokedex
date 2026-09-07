@@ -18,7 +18,7 @@
 
 <body onload="init()">
     <header class="wrapper border-big fixed-header">
-        <a href="#PageStart" onclick="showAllLoadedPokemon()">
+        <a href="#PageStart" onclick="event.preventDefault(); showAllLoadedPokemon()">
             <div class="logo-wrapper">
                 <img src="assets/img/pokeball.webp" alt="Pokeball Logo">
                 <span>Pokedex</span>
@@ -39,7 +39,6 @@
         <h1>Pokedex</h1>
         <ol id="PokemonList" class="container-pokemon-cards d-none">
         </ol>
-        <div id="NoPokemonsFound"></div>
         <div id="LoadMoreButton" class="container-load-more-button">
         </div>
         <dialog data-id="dialog" id="Dialog">
@@ -48,7 +47,7 @@
         </dialog>
     </main>
     <footer class="border-big">
-        <a href="#PageStart" onclick="showAllLoadedPokemon()">
+        <a href="#PageStart" onclick="event.preventDefault(); showAllLoadedPokemon()">
             <img src="assets/img/pokeball.webp" alt="Nach oben scrollen">
         </a>
     </footer>
