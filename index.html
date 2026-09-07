@@ -24,13 +24,14 @@
                 <span>Pokedex</span>
             </div>
         </a>
-        <div>
-            <label for="Search">Search Pokémon:</label>
+        <div class="search-container" style="position: relative;">
+            <label for="Search" class="d-none">Search Pokémon:</label>
             <input data-id="search-input" id="Search" class="input-search" type="search" name="search" minlength="3"
-                placeholder="min 3 lts" required onkeyup="pressEnter(event, 'search')">
+                placeholder="min 3 lts" required oninput="checkSearchInput()" onkeyup="pressEnter(event, 'search')">
             <button data-id="search-button" onclick="checkSearchInput()" type="submit" class="btn-icon">
                 <img src="assets/icons/search.svg" alt="search for Pokémon">
             </button>
+            <div id="NoPokemonsFound"></div>
         </div>
     </header>
     <main data-id="content" id="PageStart">

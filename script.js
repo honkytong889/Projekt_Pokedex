@@ -476,3 +476,11 @@ function showAllLoadedPokemon() {
 
     renderPokemonCards(allFetchedIds);
 }
+function pressEnter(event, action) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        if (action === 'search') {
+            checkSearchInput();
+        }
+    }
+}
