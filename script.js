@@ -173,7 +173,6 @@ function clearMessageMinLetters() {
     errorContainer.innerHTML = ``;
     errorContainer.classList.remove("show");
 }
-
 async function showAllLoadedPokemon() {
     toggleSpinner('LoadingSpinner', true);
     searchedPokemons = [];
