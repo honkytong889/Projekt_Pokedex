@@ -9,17 +9,12 @@ let dialogArray = [];
 
 async function init() {
     toggleSpinner('LoadingSpinner', true);
-    try {
-        await fetchAllInitialData();
-        await renderPokemonCards(Object.keys(pokemonDataFetched).map(Number));
-        toggleDisplayFlex('PokemonList', true);
-        await renderLoadMoreButton(loadingAmount);
-        await getPokemonsData("id", loadingAmount + 1, MAX_AMOUNT - loadingAmount);
-    } catch (err) {
-        renderApiErrorMessage("The page failed to load when starting up.");
-    } finally {
-        toggleSpinner('LoadingSpinner', false);
-    }
+    await fetchAllInitialData();
+    await renderPokemonCards(Object.keys(pokemonDataFetched).map(Number));
+    document.getElementById('PokemonList').classList.add("d-flex");
+    await renderLoadMoreButton(loadingAmount);
+    toggleSpinner('LoadingSpinner', false);
+    await getPokemonsData("id", loadingAmount + 1, MAX_AMOUNT - loadingAmount);
 }
 
 async function fetchAllInitialData() {
@@ -172,11 +167,13 @@ function renderMessageMinLetters() {
     errorContainer.innerHTML = `<p data-id="min-letters">Please enter at least 3 letters for search.</p>`;
     errorContainer.classList.add("show");
 }
+
 function clearMessageMinLetters() {
     const errorContainer = document.getElementById('NoPokemonsFound');
     errorContainer.innerHTML = ``;
     errorContainer.classList.remove("show");
 }
+
 async function showAllLoadedPokemon() {
     toggleSpinner('LoadingSpinner', true);
     searchedPokemons = [];
@@ -277,6 +274,7 @@ async function renderPreviousOrNextPokemonOverlay(pokeID, direction) {
 function closeDialog() {
     document.getElementById('Dialog').close();
 }
+
 function closeDialogOnBackdrop(event) {
     const dialog = document.getElementById('Dialog');
     if (event.target === dialog) {
@@ -287,15 +285,14 @@ function closeDialogOnBackdrop(event) {
 async function renderEvolutionChain(pokeID) {
     await checkEvolutionChainLoaded(pokeID);
     const chain = pokemonDataFetched[pokeID].evolutionChain;
-    if (chain.length == 1) {
-        document.getElementById(`EvolutionChain${pokeID}`).innerHTML = 'This Pokémon has no evolution chain.';
-        return;
-    }
+    const container = document.getElementById(`EvolutionChain${pokeID}`);
+    if (!container) return;
+    if (chain.length === 1) return container.innerHTML = 'This Pokémon has no evolution chain.';
     for (let i = 0; i < chain.length; i++) {
         await ensureEvolutionMemberLoaded(chain[i]);
-        const member = pokemonDataFetched[chain[i]];
-        const t2 = member.types[1] || member.types[0];
-        appendHTML(`EvolutionChain${pokeID}`, templateEvolutionChain(chain[i], member.name, member.types[0], t2));
+        const m = pokemonDataFetched[chain[i]];
+        const t2 = m.types[1] || m.types[0];
+        appendHTML(`EvolutionChain${pokeID}`, templateEvolutionChain(chain[i], m.name, m.types[0], t2));
     }
 }
 
@@ -351,4 +348,24 @@ function renderApiErrorMessage(message) {
         </div>
     `;
     errorContainer.classList.add("show");
+}
+
+
+function toggleSpinner(elementId, show) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    if (show) {
+        el.classList.remove("d-none");
+        el.classList.add("loading-spinner");
+    } else {
+        el.classList.add("d-none");
+        el.classList.remove("loading-spinner");
+    }
+}
+
+function appendHTML(elementId, html) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML += html;
+    }
 }
