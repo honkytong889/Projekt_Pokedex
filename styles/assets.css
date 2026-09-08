@@ -97,7 +97,7 @@ input {
     background-color: var(--color-dark);
     border: 1px solid var(--color-light);
     border-radius: var(--border-radius-small);
-    padding: 8px 0 8px 8px;
+
 }
 
 .input-loading-amount {
