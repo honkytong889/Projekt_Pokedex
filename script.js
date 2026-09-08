@@ -346,14 +346,3 @@ function renderApiErrorMessage(message) {
     `;
     errorContainer.classList.add("show");
 }
-function renderMessageMinLetters() {
-    const errorContainer = document.getElementById('NoPokemonsFound');
-    errorContainer.innerHTML = `
-        <div class="error-box">
-            <h3>Hinweis</h3>
-            <p>Please enter at least 3 letters for search.</p>
-            <button class="btn-retry" onclick="showAllLoadedPokemon()">Zurück zum Start</button>
-        </div>
-    `;
-    errorContainer.classList.add("show");
-}
