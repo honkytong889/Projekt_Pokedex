@@ -177,7 +177,6 @@ function clearMessageMinLetters() {
     errorContainer.innerHTML = ``;
     errorContainer.classList.remove("show");
 }
-
 async function showAllLoadedPokemon() {
     toggleSpinner('LoadingSpinner', true);
     searchedPokemons = [];
@@ -352,21 +351,4 @@ function renderApiErrorMessage(message) {
         </div>
     `;
     errorContainer.classList.add("show");
-}
-
-function toggleSpinner(elementId, show) {
-    const el = document.getElementById(elementId);
-    if (el) el.classList.toggle("loading-spinner", show);
-}
-
-function toggleDisplayFlex(elementId, show) {
-    const el = document.getElementById(elementId);
-    if (el) el.classList.toggle("d-flex", show);
-}
-
-function appendHTML(elementId, html) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.innerHTML += html;
-    }
 }
